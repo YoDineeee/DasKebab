@@ -1,16 +1,16 @@
 [app]
 
 # (str) Title of your application
-title = Pong
+title = Paint
 
 # (str) Package name
-package.name = pong
+package.name = paint
 
 # (str) Package domain (needed for android/ios packaging)
-package.domain = org.pong
+package.domain = org.paint
 
 # (str) Source code where the main.py live
-source.dir = pong/
+source.dir = .
 
 # (list) Source files to include (let empty to include all the files)
 source.include_exts = py,png,jpg,kv,atlas
