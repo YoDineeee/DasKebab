@@ -1,1 +1,7 @@
+<<<<<<< HEAD
 kivy_venv
+=======
+.buildozer
+env
+bin
+>>>>>>> origin/pong
