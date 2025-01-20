@@ -1,5 +1,9 @@
-from random import random
-from kivy.app import App
-from kivy.uix.widget import Widget
-from kivy.uix.button import Button
-from kivy.graphics import Color, Ellipse, Line
+from kivymd.app import MDApp
+from kivymd.uix.label import MDLabel
+
+
+class MainApp(MDApp):
+    def build(self):
+        return MDLabel(text="Hello, World", halign="center")
+
+MainApp().run()
