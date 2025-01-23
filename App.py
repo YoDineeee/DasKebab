@@ -1,12 +1,30 @@
 from kivymd.app import MDApp
 from kivymd.uix.widget import MDWidget
+from kivymd.uix.screen import MDScreen
+from kivy.lang import Builder
 
-class ExampleFirst(MDWidget):
+KV = '''          
+<Root>:
+    md_bg_color: self.theme_cls.backgroundColor  
+    MDButton:
+        style: "elevated"
+        pos_hint: {"center_x": .9, "center_y": 0.9}
+        MDButtonIcon:
+            icon: "plus"
+
+        MDButtonText:
+            text: "Add Order"
+'''
+class Root(MDScreen):
     pass
 
-class ExampleApp(MDApp):
+
+class FirstPageApp(MDApp):
     def build(self):
-        return ExampleFirst()
+        self.theme_cls.theme_style = "Light"
+        self.theme_cls.primary_palette = "Maroon"
+        Builder.load_string(KV)
+        return Root()
 
 if __name__ == '__main__':
-    ExampleApp().run()
+    FirstPageApp().run()
