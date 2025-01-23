@@ -1,9 +1,14 @@
-from kivymd.app import MDApp
-from kivymd.uix.label import MDLabel
+from kivy.lang import Builder
+from kivy.app import App
+from kivy.uix.widget import Widget
 
 
-class MainApp(MDApp):
+class ExampleFirst(Widget):
+    pass
+
+class ExampleApp(App):
     def build(self):
-        return MDLabel(text="Hello, World", halign="center")
+        return ExampleFirst()
 
-MainApp().run()
+if __name__ == '__main__':
+    ExampleApp().run()
