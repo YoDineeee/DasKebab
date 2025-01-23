@@ -9,6 +9,7 @@ KV = '''
     MDButton:
         style: "elevated"
         pos_hint: {"center_x": .9, "center_y": 0.9}
+        size: 100, 100
         MDButtonIcon:
             icon: "plus"
 
@@ -22,7 +23,7 @@ class Root(MDScreen):
 class FirstPageApp(MDApp):
     def build(self):
         self.theme_cls.theme_style = "Light"
-        self.theme_cls.primary_palette = "Maroon"
+        self.theme_cls.primary_palette = "Moccasin"
         Builder.load_string(KV)
         return Root()
 
