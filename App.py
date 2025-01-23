@@ -9,15 +9,19 @@ KV = '''
     MDButton:
         style: "elevated"
         pos_hint: {"center_x": .9, "center_y": 0.9}
-        size: 100, 100
+        on_press: root.add_order()
         MDButtonIcon:
             icon: "plus"
 
         MDButtonText:
+            id: order_btn
             text: "Add Order"
 '''
 class Root(MDScreen):
-    pass
+    def add_order(self):
+        Builder.load_string(KV)
+        btn = self.ids.order_btn
+        btn.text = "Order added"
 
 
 class FirstPageApp(MDApp):
