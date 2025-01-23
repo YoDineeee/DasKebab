@@ -1,12 +1,10 @@
-from kivy.lang import Builder
-from kivy.app import App
-from kivy.uix.widget import Widget
+from kivymd.app import MDApp
+from kivymd.uix.widget import MDWidget
 
-
-class ExampleFirst(Widget):
+class ExampleFirst(MDWidget):
     pass
 
-class ExampleApp(App):
+class ExampleApp(MDApp):
     def build(self):
         return ExampleFirst()
 
