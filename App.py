@@ -9,7 +9,9 @@ from kivymd.uix.button import MDButton, MDIconButton
 from kivymd.uix.relativelayout import RelativeLayout
 
 class CustomCard(MDCard):
+    _card_count = 0 
     def __init__(self, **kwargs):
+        CustomCard._card_count += 1 
         super().__init__(
             padding="4dp", 
             size_hint=(1, None),
@@ -17,11 +19,12 @@ class CustomCard(MDCard):
         )
         layout = RelativeLayout()
         icon_btn = MDIconButton(
-            icon="dots-vertical",
-            pos_hint={"top": 1, "right": 1}
+            icon="trash-can-outline",
+            pos_hint={"top": 1, "right": 1},
+            on_press=self.delete_card
         )
         label = MDLabel(
-            text="Order Added",
+            text=f"Order Added {CustomCard._card_count}",
             adaptive_size=True,
             text_color="grey",
             pos_hint={"center_y": 0.5, "center_x": 0.5},
@@ -31,6 +34,10 @@ class CustomCard(MDCard):
         layout.add_widget(icon_btn)        
         layout.add_widget(label)
         self.add_widget(layout)
+
+    def delete_card(self, *args):
+        parent = self.parent
+        parent.remove_widget(self)
 
 class MainScreen(MDScreen):
     def add_order(self):
