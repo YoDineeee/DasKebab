@@ -9,6 +9,7 @@ from kivymd.uix.button import MDButton, MDIconButton
 from kivymd.uix.relativelayout import RelativeLayout
 
 class CustomCard(MDCard):
+    # temporary order counting solution
     _card_count = 0 
     def __init__(self, **kwargs):
         CustomCard._card_count += 1 
