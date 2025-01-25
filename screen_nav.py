@@ -11,7 +11,7 @@ screen_helper = '''
         MDButtonText:
             text: "Add Order"
 <SecondScreen>:
- MDChip:
+    MDChip:
         pos_hint: {"center_x": .5, "center_y": .5}
 
         MDChipText:
