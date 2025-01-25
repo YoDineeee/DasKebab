@@ -7,38 +7,50 @@ from kivymd.uix.card import MDCard
 from kivymd.uix.label import MDLabel
 from kivymd.uix.button import MDButton, MDIconButton
 from kivymd.uix.relativelayout import RelativeLayout
+from kivymd.uix.boxlayout import MDBoxLayout
 
 class CustomCard(MDCard):
     # temporary order counting solution
     _card_count = 0 
     def __init__(self, **kwargs):
-        CustomCard._card_count += 1 
+        CustomCard._card_count += 1 #
         super().__init__(
             padding="4dp", 
             size_hint=(1, None),
             **kwargs
         )
         layout = RelativeLayout()
-        icon_btn = MDIconButton(
+        buttons_layout = MDBoxLayout(
+            pos_hint={'y': 0.5, 'x': 0.85},
+            spacing=2.5
+        )
+
+        delete_btn = MDIconButton(
             icon="trash-can-outline",
-            pos_hint={"top": 1, "right": 1},
             on_press=self.delete_card
         )
+        edit_btn = MDIconButton(
+            icon="square-edit-outline",
+            on_press=self.edit_card
+        )
         label = MDLabel(
-            text=f"Order Added {CustomCard._card_count}",
+            text=f"Order Added {CustomCard._card_count}", #
             adaptive_size=True,
             text_color="grey",
             pos_hint={"center_y": 0.5, "center_x": 0.5},
             bold=True
         )
-
-        layout.add_widget(icon_btn)        
+        buttons_layout.add_widget(edit_btn)
+        buttons_layout.add_widget(delete_btn)
+        layout.add_widget(buttons_layout)  
         layout.add_widget(label)
         self.add_widget(layout)
 
     def delete_card(self, *args):
         parent = self.parent
         parent.remove_widget(self)
+    def edit_card(self, *args):
+        print("Entered menu")
 
 class MainScreen(MDScreen):
     def add_order(self):
@@ -60,3 +72,4 @@ if __name__ == '__main__':
 # TODO: 
 # increase font_size
 # fix scrolling behaviour
+# fix boxlayout icon positioning
