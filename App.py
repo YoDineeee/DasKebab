@@ -11,21 +11,19 @@ from kivymd.uix.floatlayout import FloatLayout
 from kivymd.uix.boxlayout import MDBoxLayout
 
 class OrderCard(MDCard):
-    # temporary order counting solution
     _card_count = 0
     
     def __init__(self, **kwargs):
         OrderCard._card_count += 1
         super().__init__(
-            padding="4dp",
+            padding="8dp",
             size_hint=(1, None),
+            height="100dp",
             **kwargs
         )
         
-        # Main layout
         layout = MDRelativeLayout()
         
-        # Label in the center
         label = MDLabel(
             text=f"Order Added {OrderCard._card_count}",
             adaptive_size=True,
@@ -35,21 +33,24 @@ class OrderCard(MDCard):
         )
         layout.add_widget(label)
         
-        # Buttons layout in top right corner
         buttons_layout = MDBoxLayout(
             orientation='horizontal',
             size_hint=(None, None),
-            size=(100, 48),
-            pos_hint={"top": 1, "right": 1}
+            width="96dp",
+            height="48dp",
+            pos_hint={"top": 1, "right": 1},
+            spacing="4dp"
         )
         
         edit_btn = MDIconButton(
             icon="square-edit-outline",
-            on_press=self.edit_card
+            on_press=self.edit_card,
+            size=("24dp", "24dp")
         )
         delete_btn = MDIconButton(
             icon="trash-can-outline",
-            on_press=self.delete_card
+            on_press=self.delete_card,
+            size=("24dp", "24dp")
         )
         
         buttons_layout.add_widget(edit_btn)
@@ -82,5 +83,3 @@ if __name__ == '__main__':
 
 # TODO: 
 # increase font_size for order button
-# fix scrolling behaviour
-# fix boxlayout icon positioning

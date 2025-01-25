@@ -1,23 +1,25 @@
 <MainScreen>:
     md_bg_color: self.theme_cls.backgroundColor  
     BoxLayout:
-        padding: [0, 0, 10,0]
-        # spacing: 20
+        padding: "10sp"
         ScrollView:
-            do_scroll_x: False
-            do_scroll_y: True
             StackLayout:
                 id: stack
                 spacing: 15
-                padding: 20                                                                    
-        MDButton:
-            style: "elevated"
-            pos_hint: {"center_y": 0.9}
-            size: 100, 60
-            on_press: root.add_order()
-            MDButtonIcon:
-                icon: "plus"
-            MDButtonText:
-                id: order_btn
-                text: "Add Order"
-                # font_size: "50sp"
+                padding: 20    
+        BoxLayout:
+            orientation: 'vertical'
+            padding: 20
+            size_hint_x: 0.3
+            MDButton:
+                style: "elevated"
+                size: "100sp", "60sp"
+                size_hint: None,None
+                pos_hint: {"center_y": 0.9}
+                on_press: root.add_order()
+                MDButtonIcon:
+                    icon: "plus"
+                MDButtonText:
+                    id: order_btn
+                    text: "Add Order"
+            Widget:
