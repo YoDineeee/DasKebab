@@ -6,6 +6,8 @@
             do_scroll_x: False
             do_scroll_y: True
             StackLayout:
+                on_children:
+                    if self.parent.scroll_y == 0.0: self.parent.scroll_y = 0.00000001
                 size_hint_y: None
                 height: self.minimum_height
                 spacing: "15sp"
@@ -27,4 +29,5 @@
                 MDButtonText:
                     id: order_btn
                     text: "Add Order"
+                    # font_size: "100sp"
             Widget:
