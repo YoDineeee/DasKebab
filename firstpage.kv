@@ -3,20 +3,25 @@
     BoxLayout:
         padding: "10sp"
         ScrollView:
+            do_scroll_x: False
+            do_scroll_y: True
             StackLayout:
+                size_hint_y: None
+                height: self.minimum_height
+                spacing: "15sp"
+                padding: "20sp"    
                 id: stack
-                spacing: 15
-                padding: 20    
         BoxLayout:
             orientation: 'vertical'
-            padding: 20
-            size_hint_x: 0.3
+            padding: "20sp"
+            width: "160dp"
+            size_hint_x: None
             MDButton:
+                spacing: "10sp"
                 style: "elevated"
-                size: "100sp", "60sp"
+                size: "100sp", "70sp"
                 size_hint: None,None
-                pos_hint: {"center_y": 0.9}
-                on_press: root.add_order()
+                on_release: root.add_order()
                 MDButtonIcon:
                     icon: "plus"
                 MDButtonText:

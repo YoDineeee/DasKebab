@@ -69,7 +69,7 @@ class OrderCard(MDCard):
 class MainScreen(MDScreen):
     def add_order(self):
         stack = self.ids.stack
-        stack.add_widget(OrderCard())
+        stack.add_widget(OrderCard(size_hint_y=None))
 
 class FirstPageApp(MDApp):
     def build(self):
@@ -83,3 +83,8 @@ if __name__ == '__main__':
 
 # TODO: 
 # increase font_size for order button
+
+# BUG:
+# after scrolling to the end and then adding/removing orders,
+# scroll bar does not go back up
+# r its a feature?
