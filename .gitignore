@@ -2,3 +2,4 @@ kivy_venv
 .buildozer
 env
 bin
+KivyMD

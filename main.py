@@ -2,7 +2,6 @@ from kivymd.app import MDApp
 from kivymd.uix.widget import MDWidget
 from kivymd.uix.screen import MDScreen
 from kivy.properties import StringProperty, ListProperty
-from kivymd.uix.list import MDListItem
 from kivymd.uix.card import MDCard
 from kivymd.uix.label import MDLabel
 from kivymd.uix.button import MDButton, MDIconButton
@@ -80,11 +79,3 @@ class FirstPageApp(MDApp):
 if __name__ == '__main__':
     FirstPageApp().run()
 
-
-# TODO: 
-# increase font_size for order button
-
-# BUG:
-# after scrolling to the end and then adding/removing orders,
-# scroll bar does not go back up
-# r its a feature?
