@@ -4,3 +4,4 @@ env
 bin
 KivyMD
 **/__pycache__/
+/__pycache__/* 
