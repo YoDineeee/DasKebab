@@ -3,3 +3,4 @@ kivy_venv
 env
 bin
 KivyMD
+__pycache__
