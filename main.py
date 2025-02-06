@@ -8,6 +8,7 @@ from kivymd.uix.button import MDButton, MDIconButton
 from kivymd.uix.relativelayout import MDRelativeLayout
 from kivymd.uix.floatlayout import FloatLayout
 from kivymd.uix.boxlayout import MDBoxLayout
+import trio
 
 class OrderCard(MDCard):
     _card_count = 0
@@ -76,6 +77,7 @@ class MainApp(MDApp):
         self.theme_cls.primary_palette = "Moccasin"
         return MainScreen()
     
-if __name__ == '__main__':
-    MainApp().run()
+# if __name__ == '__main__':
+#     MainApp().run()
+
 
