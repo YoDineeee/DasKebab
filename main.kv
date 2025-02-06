@@ -18,40 +18,17 @@
             padding: "20sp"
             width: "160dp"
             size_hint_x: None
-
-            # First Button
             MDButton:
                 spacing: "10sp"
                 style: "elevated"
-                size: "100sp", "70sp"  # Fixed width of 100sp
-                size_hint: None, None  # Disable auto-sizing
+                size: "100sp", "70sp"
+                size_hint: None,None
                 on_release: root.add_order()
-                
                 MDButtonIcon:
                     icon: "plus"
-                
                 MDButtonText:
+                    id: order_btn
                     text: "Add Order"
                     theme_font_size: "Custom"
-                    font_size: "12sp"  # Smaller font to fit fixed width
-                    halign: "center"  # Center-align text
-                    text_size: self.width, None  # Allow text wrapping
-
-            # Second Button
-            MDButton:
-                spacing: "10sp"
-                style: "elevated"
-                size: "100sp", "70sp"  # Same fixed width of 100sp
-                size_hint: None, None  # Disable auto-sizing
-                
-                MDButtonIcon:
-                    icon: "plus"
-                
-                MDButtonText:
-                    text: "View Log"
-                    theme_font_size: "Custom"
-                    font_size: "12sp"  # Smaller font to fit fixed width
-                    halign: "center"  # Center-align text
-                    text_size: self.width, None  # Allow text wrapping
-
-            Widget:  # Spacer to push buttons upward
+                    font_size: "15sp"
+            Widget:
