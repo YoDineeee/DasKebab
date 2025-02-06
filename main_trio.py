@@ -8,12 +8,15 @@ from kivymd.uix.button import MDButton, MDIconButton
 from kivymd.uix.relativelayout import MDRelativeLayout
 from kivymd.uix.floatlayout import FloatLayout
 from kivymd.uix.boxlayout import MDBoxLayout
-from multiprocessing import Process
+import trio
+from kivy.uix.screenmanager import Screen, ScreenManager
+
+
 
 class OrderCard(MDCard):
     _card_count = 0
     
-    def __init__(self, **kwargs):
+    def  __init__(self, **kwargs):
         OrderCard._card_count += 1
         super().__init__(
             padding="8dp",
@@ -77,14 +80,13 @@ class MainApp(MDApp):
         self.theme_cls.primary_palette = "Moccasin"
         return MainScreen()
     
-def run_app():
-    MainApp().run()
-
+    async def async_run(self):
+        async with trio.open_nursery() as nursery:
+            self.nursery = nursery
+            await super().async_run(async_lib='trio')
+            nursery.cancel_scope.cancel()
+    
 if __name__ == '__main__':
-    # Launch two separate processes
-    processes = [Process(target=run_app) for _ in range(2)]
-    for p in processes:
-        p.start()
-    for p in processes:
-        p.join()
+    trio.run(MainApp().async_run)
+
 

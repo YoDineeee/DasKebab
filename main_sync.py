@@ -8,7 +8,6 @@ from kivymd.uix.button import MDButton, MDIconButton
 from kivymd.uix.relativelayout import MDRelativeLayout
 from kivymd.uix.floatlayout import FloatLayout
 from kivymd.uix.boxlayout import MDBoxLayout
-from multiprocessing import Process
 
 class OrderCard(MDCard):
     _card_count = 0
@@ -77,14 +76,6 @@ class MainApp(MDApp):
         self.theme_cls.primary_palette = "Moccasin"
         return MainScreen()
     
-def run_app():
-    MainApp().run()
-
 if __name__ == '__main__':
-    # Launch two separate processes
-    processes = [Process(target=run_app) for _ in range(2)]
-    for p in processes:
-        p.start()
-    for p in processes:
-        p.join()
+    MainApp().run()
 

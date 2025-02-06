@@ -1,0 +1,28 @@
+<MainScreen>:
+    md_bg_color: self.theme_cls.backgroundColor  
+    BoxLayout:
+        padding: "10sp"
+        ScrollView:
+            do_scroll_x: False
+            do_scroll_y: True
+            StackLayout:
+                on_children:
+                    if self.parent.scroll_y == 0.0: self.parent.scroll_y = 0.00000001
+                size_hint_y: None
+                height: self.minimum_height
+                spacing: "15sp"
+                padding: "20sp"    
+                id: stack
+        BoxLayout:
+            orientation: 'vertical'
+            padding: "20sp"
+            width: "160dp"
+            size_hint_x: None
+            Button:
+                spacing: "10sp"
+                style: "elevated"
+                size: "100sp", "70sp"
+                size_hint: None,None
+                on_release: root.add_order()
+                text: "haha"
+            Widget:

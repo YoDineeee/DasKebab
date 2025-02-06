@@ -1,29 +1,30 @@
-from kivy.lang import Builder
-from kivymd.app import MDApp
-from kivymd.uix.button import MDButton
-from kivymd.uix.label import MDLabel
-from kivy.uix.boxlayout import BoxLayout
 from multiprocessing import Process
 
-# Define the Kivy layout using KV language
+from kivy.app import App
+from kivy.lang import Builder
+from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.button import Button
+from kivy.uix.label import Label
+
 KV = '''
 BoxLayout:
     orientation: 'vertical'
-    MDLabel:
+
+    Label:
         text: "This is a window"
-    MDButton:
+    Button:
         text: "Close"
-        on_release: app.stop()
 '''
 
-class MainApp(MDApp):
+
+class MainApp(App):
     def build(self):
-        self.theme_cls.theme_style = "Light"
-        self.theme_cls.primary_palette = "Moccasin"
         return Builder.load_string(KV)
+
 
 def run_app():
     MainApp().run()
+
 
 if __name__ == '__main__':
     # Launch two separate processes
