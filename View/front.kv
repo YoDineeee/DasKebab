@@ -1,0 +1,32 @@
+#livy
+#2.0.0
+
+
+
+<FirstPage>:
+    md_bg_color: self.theme_cls.backgroundColor  
+    MDButton:
+        id: order_btn
+        style: "elevated"
+        pos_hint: {"center_x": .9, "center_y": 0.9}
+        on_press: root.add_order()
+        icon: "plus"
+        text: "Add Order"
+
+<SecondPage>:
+    md_bg_color: self.theme_cls.backgroundColor  
+    MDBoxLayout:
+        orientation: "vertical"
+        padding: 20
+        spacing: 20
+
+        MDLabel:
+            text: "Welcome to the Second Page!"
+            halign: "center"
+            
+
+        MDButton:
+            text: "Go Back"
+            on_press: root.manager.current = "first_page"
+            
+            
