@@ -7,14 +7,15 @@ from kivy.lang import Builder
 
 
 
-class MainApp(MDApp):
+class Main(MDApp):
     def build(self):
         self.theme_cls.theme_style = "Light"
         self.theme_cls.primary_palette = "Moccasin"
+        self.icon="View/png/icon.png"
         
         Builder.load_string()
     
         return 
 
 if __name__ == '__main__':
-    MainApp().run()
+    Main().run()
