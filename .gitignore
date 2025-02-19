@@ -2,3 +2,5 @@ kivy_venv
 .buildozer
 env
 bin
+__pycache__
+
